@@ -73,6 +73,8 @@ public class Usuario {
 		
 		if(!this.pass.equals(passconfir)) esValid=false;
 		
+		if(this.habitacion==null) esValid=false;
+		
 		return esValid;
 	}
 

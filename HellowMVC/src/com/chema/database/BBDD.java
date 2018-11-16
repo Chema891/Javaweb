@@ -114,6 +114,16 @@ public class BBDD {
 			return nuevoId;
 	}
 
+	public int inserHab(Habitacion newHab) {
+		int nuevoHid=0;
+		
+		nuevoHid=this.habitaciones.size()+1; //simulamos que la bd asigna un id consecutivo
+		newHab.setHid(nuevoHid);
+		
+		this.habitaciones.add(newHab);
+		
+		return nuevoHid;
+}
 	
 		
 		

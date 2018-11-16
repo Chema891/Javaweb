@@ -39,10 +39,19 @@ public class NuevoUsuarioServlet extends HttpServlet {
 		String passrecib = request.getParameter("password");
 		String passconfir = request.getParameter("confirmarpassword");
 		String habitacionrec = request.getParameter("habitacion");
-
+		
+		int habitacionrecID = 0;
+		
+		try {
+			habitacionrecID=Integer.parseInt(habitacionrec);
+		} catch (Exception e) {
+			System.out.println("Exception!!!!: "+ e.getMessage());
+			
+		}
+	
 		System.out.println("habitacion:" + habitacionrec);
 		
-		Usuario nuevoUser = new Usuario(0, namerecib, emailrecib, passrecib, null);
+		Usuario nuevoUser = new Usuario(0, namerecib, emailrecib, passrecib, BBDD.getInstance().getHabitacionById(habitacionrecID));
 
 		if (nuevoUser.esValido(passconfir)) {
 
@@ -63,7 +72,7 @@ public class NuevoUsuarioServlet extends HttpServlet {
 		}
 
 		System.out.println("ESTOY en el post!!!!!!!!!!");
-		System.out.println("Nambre: " + namerecib);
+		System.out.println("Nombre: " + namerecib);
 		System.out.println("Email: " + emailrecib);
 		System.out.println("PAss: " + passrecib);
 		System.out.println("PAss: " + passconfir);

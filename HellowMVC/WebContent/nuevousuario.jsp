@@ -41,6 +41,9 @@
 			</select>
 		</div>
 		<div>
+		 <a href="./nuevahabitacion">Nueva Habitacion</a>
+		</div>
+		<div>
 			<button>Registrarse</button>
 		</div>
 	</form>

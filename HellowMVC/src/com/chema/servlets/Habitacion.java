@@ -16,6 +16,7 @@ public class Habitacion {
 	}
 
 
+
 	public int getHid() {
 		return hid;
 	}
@@ -55,5 +56,17 @@ public class Habitacion {
 		this.city = city;
 	}
 	
+	public boolean esValidoh() {
+		boolean esValidh=true;
+		
+		if(this.streat==null || this.streat.equals("") || this.streat.matches("(.*)?[0-9](.*)?") ) esValidh=false;
+		
+		if(this.number<=0 ) esValidh=false;
+		
+		if(this.city==null || this.city.equals("") || this.city.matches("(.*)?[0-9](.*)?") ) esValidh=false;
+		
+				
+		return esValidh;
+	}
 	
 }
