@@ -7,13 +7,14 @@ import com.chema.servlets.Usuario;
 
 public class BBDD {
 
-	private static BBDD instance=null;
-	
+	private static BBDD instance = null;
+
 	public ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
 	public ArrayList<Habitacion> habitaciones = new ArrayList<Habitacion>();
-	
+
 	public static final BBDD getInstance() {
-		if (instance==null) instance=new BBDD();
+		if (instance == null)
+			instance = new BBDD();
 		return instance;
 	}
 
@@ -71,24 +72,22 @@ public class BBDD {
 	}
 
 	public Habitacion getHabitacionById(int id) {
-		Habitacion habitacionADevolver=null;
-		
-		
-		
+		Habitacion habitacionADevolver = null;
+
 		for (Habitacion unHabitacion : habitaciones) {
-			if(unHabitacion.getHid()==id) {
+			if (unHabitacion.getHid() == id) {
 				habitacionADevolver = unHabitacion;
-				break; 
+				break;
 			}
 		}
-		
+
 		return habitacionADevolver;
 	}
 
 	public boolean dameUsuarioPorEmailyPass(String emailrecib, String passrecib) {
-		
+
 		boolean existeUsuario = false;
-		
+
 		for (Usuario unUsuario : usuarios) {
 			if (unUsuario.getEmail().equals(emailrecib) && unUsuario.getPass().equals(passrecib)) {
 				existeUsuario = true;
@@ -97,37 +96,44 @@ public class BBDD {
 		}
 
 		return existeUsuario;
-	
-		
-		
-		
+
 	}
 
 	public int inserUsuario(Usuario newUser) {
-			int nuevoId=0;
-			
-			nuevoId=this.usuarios.size()+1; //simulamos que la bd asigna un id consecutivo
-			newUser.setId(nuevoId);
-			
-			this.usuarios.add(newUser);
-			
-			return nuevoId;
+		int nuevoId = 0;
+
+		nuevoId = this.usuarios.size() + 1; // simulamos que la bd asigna un id consecutivo
+		newUser.setId(nuevoId);
+
+		this.usuarios.add(newUser);
+
+		return nuevoId;
 	}
 
 	public int inserHab(Habitacion newHab) {
-		int nuevoHid=0;
-		
-		nuevoHid=this.habitaciones.size()+1; //simulamos que la bd asigna un id consecutivo
-		newHab.setHid(nuevoHid);
-		
-		this.habitaciones.add(newHab);
-		
-		return nuevoHid;
-}
-	
-		
-		
-	}
-	
-	
+		int nuevoHid = 0;
 
+		nuevoHid = this.habitaciones.size() + 1; // simulamos que la bd asigna un id consecutivo
+		newHab.setHid(nuevoHid);
+
+		this.habitaciones.add(newHab);
+
+		return nuevoHid;
+	}
+
+	public boolean borrarUsuarioPorId(int idTnt) {
+		// TODO Auto-generated method stub
+		
+		for (Usuario unUsuario : usuarios) {
+			if(unUsuario.getId()==idTnt) {
+				this.usuarios.remove(unUsuario);
+				break;
+			}
+		}
+		
+		
+		
+		return true;
+	}
+
+}

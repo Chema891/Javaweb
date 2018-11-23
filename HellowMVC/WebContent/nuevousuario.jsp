@@ -31,7 +31,7 @@
 		<div>
 			<input type="password" placeholder="confirma contraseña"
 				name="confirmarpassword" id="confirmarpassword" />
-		</div>
+		</div>º
 		<div>
 			<label for="habitacion">Habitación:</label> 	
 			<select name="habitacion" id="habitacion">

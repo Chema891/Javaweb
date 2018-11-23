@@ -1,0 +1,24 @@
+
+<web-app version="3.1">
+  <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>holaChemaServlet</servlet-name>
+  	<display-name>holaChemaServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.chema.controllers.holaChemaServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>AmigoAppServlet</servlet-name>
+  	<display-name>AmigoAppServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.chema.controllers.AmigoAppServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>holaChemaServlet</servlet-name>
+  	<url-pattern>/hola</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AmigoAppServlet</servlet-name>
+  	<url-pattern>/AmigoAppServlet</url-pattern>
+  </servlet-mapping>
+</web-app>
